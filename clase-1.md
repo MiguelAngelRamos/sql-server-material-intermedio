@@ -10,4 +10,12 @@ GO -- Fin del lote
 USE TechDataCorpDB;
 
 GO
+
+/* 2) Crear Esquemas Lógicos) */
+IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = N'catalog')
+    EXEC('CREATE SCHEMA catalog AUTHORIZATION dbo'); --- Esquema de productos
+GO
+IF NOT EXISTS(SELECT * FROM sys.schemas WHERE name = N'sales')
+    EXEC('CREATE SCHEMA sales AUTHORIZATION dbo'); -- Esquema de ventas
+GO
 ```
