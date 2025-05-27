@@ -21,9 +21,21 @@ IF NOT EXISTS(SELECT * FROM sys.schemas WHERE name = N'sales')
 GO
 
 -- (CONSTRAINT UQ_Products_ProductCode UNIQUE) Esto significa que no pueden haber dos productos con el mismo código
+-- 9999999.99
+-- 2024-05-27 17:22:15
 CREATE TABLE catalog.Products (
   ProductId INT IDENTITY(1,1) CONSTRAINT PK_Products PRIMARY KEY,
-  ProductCode VARCHAR(20) NOT NULL CONSTRAINT UQ_Products_ProductCode UNIQUE, 
-
+  ProductCode VARCHAR(20) NOT NULL CONSTRAINT UQ_Products_ProductCode UNIQUE,
+  ProductName NVARCHAR(150) NOT NULL,
+  UnitPrice DECIMAL(10,2) NOT NULL CONSTRAINT CK_Products_UnitPrice CHECK (UnitPrice > 0),
+  IsActive BIT NOT NULL CONSTRAINT DF_Products_IsActive DEFAULT(1), -- Activo por default
+  CreateAt DATETIME2(0) NOT NULL CONSTRAINT DF_Products_CreatedAt DEFAULT (GETDATE())
 );
+
+GO
+
+CREATE INDEX IX_Products_ProductCode
+    ON catalog.Products(ProductCode);
+
+GO
 ```
