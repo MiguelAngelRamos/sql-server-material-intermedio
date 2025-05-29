@@ -29,4 +29,9 @@ CREATE TABLE Prestamos(
 	CONSTRAINT FK_Prestamos_Usuarios FOREIGN KEY(IDUsuario) REFERENCES Usuarios(IDUsuario)
 	);
 GO
+
+SELECT name, type, parent_object_id
+FROM sys.objects
+WHERE type IN ('F', 'PK', 'UQ', 'C', 'D');
+
 ```
