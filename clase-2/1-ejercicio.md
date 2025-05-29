@@ -30,18 +30,18 @@ Crea las siguientes tres tablas:
 
 #### Tabla `Usuarios`
 
-* `IDUsuario` (entero, clave primaria)
+* `IDUsuario` (entero, clave primaria) (AutoIncremental)
 * `Nombre` (texto, obligatorio)
 
 #### Tabla `Libros`
 
-* `IDLibro` (entero, clave primaria)
+* `IDLibro` (entero, clave primaria) (AutoIncremental)
 * `Titulo` (texto, obligatorio)
 * `Autor` (texto, obligatorio)
 
 #### Tabla `Prestamos`
 
-* `IDPrestamo` (entero, clave primaria)
+* `IDPrestamo` (entero, clave primaria) (AutoIncremental)
 * `IDLibro` (entero, clave foránea a `Libros`)
 * `IDUsuario` (entero, clave foránea a `Usuarios`)
 * `FechaPrestamo` (tipo fecha)
@@ -54,28 +54,28 @@ Agrega la siguiente información:
 
 #### Usuarios:
 
-| IDUsuario | Nombre      |
-| --------- | ----------- |
-| 100       | Ana Pérez   |
-| 101       | Juan López  |
-| 102       | María Gómez |
+| Nombre      |
+| ----------- |
+| Ana Pérez   |
+| Juan López  |
+| María Gómez |
 
 #### Libros:
 
-| IDLibro | Titulo                  | Autor                    |
-| ------- | ----------------------- | ------------------------ |
-| 1       | Cien Años de Soledad    | Gabriel García Márquez   |
-| 2       | El Señor de los Anillos | J.R.R. Tolkien           |
-| 3       | 1984                    | George Orwell            |
-| 4       | El Principito           | Antoine de Saint-Exupéry |
+| Titulo                  | Autor                    |
+| ----------------------- | ------------------------ |
+| Cien Años de Soledad    | Gabriel García Márquez   |
+| El Señor de los Anillos | J.R.R. Tolkien           |
+| 1984                    | George Orwell            |
+| El Principito           | Antoine de Saint-Exupéry |
 
 #### Préstamos:
 
-| IDPrestamo | IDLibro | IDUsuario | FechaPrestamo |
-| ---------- | ------- | --------- | ------------- |
-| 1          | 1       | 100       | 2024-03-01    |
-| 2          | 3       | 101       | 2024-03-05    |
-| 3          | 2       | 102       | 2024-03-10    |
+| IDLibro | IDUsuario | FechaPrestamo |
+| ------- | --------- | ------------- |
+| 1       | 1         | 2024-03-01    |
+| 3       | 2         | 2024-03-05    |
+| 2       | 3         | 2024-03-10    |
 
 ---
 
@@ -90,16 +90,4 @@ Agrega la siguiente información:
 
    *Usa alias para mejorar la presentación de las columnas.*
 
----
-
-###  **Criterios de evaluación (opcional para clases)**
-
-| Criterio                                        | Puntaje |
-| ----------------------------------------------- | ------- |
-| Base de datos y tablas creadas correctamente    | 2 pts   |
-| Inserción correcta de todos los datos           | 2 pts   |
-| Relaciones entre tablas definidas con claves FK | 2 pts   |
-| Consulta `INNER JOIN` correcta y con alias      | 4 pts   |
-| **Total**                                       | 10 pts  |
-
----
+-- 
