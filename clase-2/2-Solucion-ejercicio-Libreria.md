@@ -30,8 +30,45 @@ CREATE TABLE Prestamos(
 	);
 GO
 
+
 SELECT name, type, parent_object_id
 FROM sys.objects
 WHERE type IN ('F', 'PK', 'UQ', 'C', 'D');
+
+INSERT INTO Usuarios (Nombre) VALUES (N'Ana Pérez'),
+									 (N'Juan López'),
+									 (N'María Gómez');
+GO
+SELECT * FROM Usuarios;
+/*
+Libros:
+Titulo	                     Autor
+Cien Años de Soledad	     Gabriel García Márquez
+El Señor de los Anillos	     J.R.R. Tolkien
+1984	                      George Orwell
+El Principito	             Antoine de Saint-Exupéry
+*/
+INSERT INTO Libros (Titulo, Autor) 
+VALUES (N'Cien Años de Soledad', N'Gabriel García Márquez'),
+	   (N'El Señor de los Anillos', N'George Orwell'),
+	   (N'El Principito', N'Antoine de Saint-Exupéry');
+GO
+SELECT * FROM Libros;
+/*
+Préstamos:
+IDLibro	IDUsuario	FechaPrestamo
+1	      1	         2024-03-01
+3	      2	         2024-03-05
+2	      3	         2024-03-10
+*/
+
+INSERT INTO Prestamos (IDLibro, IDUsuario, FechaPrestamo)
+VALUES (1,1,'2024-03-01'),
+	   (3,2,'2024-03-05'),
+	   (2,3,'2024-03-10');
+
+SELECT * FROM Usuarios;
+SELECT * FROM Libros;
+SELECT * FROM Prestamos;
 
 ```
