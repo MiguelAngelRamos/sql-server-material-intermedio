@@ -94,4 +94,15 @@ EXEC sp_InsertarVenta
  Mensaje 50000, nivel 16, estado 1, procedimiento sp_InsertarVenta, línea 69 [línea de inicio de lote 80]
 El cliente no existe.
  */
+
+-- Fecha con SysDatetime
+DECLARE @FechaVenta DATETIME;
+
+SET @FechaVenta = SYSDATETIME();
+
+EXEC sp_InsertarVenta
+    @IdCliente = 1,
+    @Fecha = @FechaVenta,
+    @IdLibro1 = 2, @Cantidad1 = 1,
+    @IdLibro2 = 5, @Cantidad2 = 3;
 ```
