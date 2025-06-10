@@ -72,3 +72,26 @@ END;
 GO
 
 ```
+
+## Como ejecutarlo
+
+```sql
+
+EXEC sp_InsertarVenta
+    @IdCliente = 1,
+    @Fecha = '2024-06-10',
+    @IdLibro1 = 2, @Cantidad1 = 1,
+    @IdLibro2 = 5, @Cantidad2 = 3;
+    
+
+EXEC sp_InsertarVenta
+    @IdCliente = 80,
+    @Fecha = '2024-06-10',
+    @IdLibro1 = 2, @Cantidad1 = 1,
+    @IdLibro2 = 5, @Cantidad2 = 3;
+    
+ /*
+ Mensaje 50000, nivel 16, estado 1, procedimiento sp_InsertarVenta, línea 69 [línea de inicio de lote 80]
+El cliente no existe.
+ */
+```
